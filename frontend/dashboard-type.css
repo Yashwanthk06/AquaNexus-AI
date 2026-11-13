@@ -1,0 +1,38 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap');
+
+:root {
+  --font-heading: "Bricolage Grotesque", "Segoe UI", sans-serif;
+  --font-body: "DM Sans", "Segoe UI", sans-serif;
+  --font-reading: "IBM Plex Mono", Consolas, monospace;
+}
+
+body { font-family: var(--font-body); }
+
+main h1, main h2, main h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+}
+
+main > header h1 {
+  font-size: clamp(2.4rem, 8vw, 5.6rem);
+  font-weight: 800;
+  letter-spacing: -.065em;
+  line-height: .98;
+  margin: 14px 0 12px;
+}
+
+main h2 {
+  font-size: clamp(1.35rem, 2.6vw, 1.85rem);
+  letter-spacing: -.035em;
+}
+
+main h3 { letter-spacing: -.025em; }
+
+main > header small, main .metric, main input[type=number] {
+  font-family: var(--font-reading);
+  font-variant-numeric: tabular-nums;
+}
+
+main .metric { letter-spacing: -.045em; }
+#digital-twin svg text { font-family: var(--font-reading); }
+main button { font-family: var(--font-body); font-weight: 700; }

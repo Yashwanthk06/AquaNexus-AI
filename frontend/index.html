@@ -1,0 +1,37 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AquaNexus AI</title>
+  <style>
+    * { box-sizing: border-box }
+    body { margin: 0; background: #eff7f6; color: #12343a; font: 16px system-ui, sans-serif }
+    main { max-width: 1040px; margin: auto; padding: 24px }
+    header { padding: 32px; border-radius: 20px; color: white; background: #103e45 }
+    h1 { font-size: clamp(2rem, 5vw, 3rem); margin: 10px 0 }
+    h2 { margin-top: 0; font-size: 1.2rem }
+    small { color: inherit }
+    section, article { background: white; padding: 20px; border-radius: 14px; margin-top: 16px }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 12px }
+    label { display: block; margin-bottom: 12px }
+    input[type=range], meter { width: 100%; accent-color: #08786c }
+    button { background: #08786c; color: white; padding: 10px 14px; border: 0; border-radius: 8px; cursor: pointer; margin: 3px }
+    button:disabled { opacity: .55; cursor: wait }
+    .danger { color: #a33818 }
+    .metric { font-size: 1.65rem; display: block }
+    .note { color: #456266 }
+  </style>
+  <link rel="stylesheet" href="/dashboard.css">
+  <link rel="stylesheet" href="/dashboard-motion.css">
+  <link rel="stylesheet" href="/dashboard-type.css">
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src.jsx"></script>
+  <script type="module" src="/dashboard-motion.js"></script>
+</body>
+</html>
+
+
+

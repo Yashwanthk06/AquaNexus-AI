@@ -1,0 +1,118 @@
+﻿:root {
+  color-scheme: dark;
+  --ink: #edf8ff;
+  --muted: #a5bdca;
+  --line: #284356;
+  --accent: #62e8ce;
+  --surface: #112333;
+  --cursor-x: 75vw;
+  --cursor-y: 12vh;
+}
+
+body {
+  background: #081420;
+  color: var(--ink);
+  font-family: Inter, "Segoe UI", system-ui, sans-serif;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(420px circle at var(--cursor-x) var(--cursor-y),
+      #33ceb21e, transparent 80%),
+    linear-gradient(145deg, #102d4538, transparent 45%);
+}
+
+main { position: relative; }
+main > header {
+  position: relative;
+  overflow: hidden;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  border: 1px solid #3c796f;
+  background:
+    radial-gradient(460px circle at var(--hero-x, 82%) var(--hero-y, 25%),
+      #209e8f70, transparent 80%),
+    linear-gradient(120deg, #122942, #0c3739);
+  box-shadow: 0 18px 50px #0004;
+}
+header h1 { font-size: clamp(2.5rem, 7vw, 5rem); }
+header small { background: #0b242bc9; }
+
+section, article {
+  background: var(--surface);
+  border-color: var(--line);
+  box-shadow: 0 8px 24px #0002;
+}
+section article { background: #142b3d; }
+.grid { align-items: stretch; }
+.note { color: var(--muted); }
+.metric { color: #95f5e2; font-variant-numeric: tabular-nums; }
+
+.scenario-controls { background: #0b1b29; border-color: var(--line); }
+input[type=number] { background: #0b1b29; color: var(--ink); }
+input[type=range], meter { accent-color: var(--accent); }
+a { color: #88eadb; }
+
+main button {
+  color: #072b27;
+  background: var(--accent);
+  border-radius: 10px;
+  transition: transform 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
+}
+main button[type=button] {
+  color: #c9fff3;
+  background: #173d40;
+  border-color: #346d68;
+}
+main button:not(:disabled):active { transform: translateY(1px); }
+main :focus-visible { outline: 3px solid #a4e4ff; outline-offset: 4px; }
+
+main section[aria-labelledby="water-alerts-heading"] article { background: #302821; }
+main .danger { color: #ffb6a4; }
+
+/* Keep the existing tank chart readable on a dark dashboard. */
+#digital-twin svg {
+  background: #ecf7fa;
+  border-radius: 14px;
+  padding: 8px;
+}
+#digital-twin .grid strong { color: #e8f7ff !important; }
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  main article { transition: transform 180ms ease, box-shadow 180ms ease; }
+  main article:hover { transform: translateY(-3px); box-shadow: 0 12px 26px #0005; }
+  main button:not(:disabled):hover { box-shadow: 0 4px 18px #62e8ce35; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  main button, main article { transition: none; }
+  body::before { display: none; }
+}
+
+/* Wide dashboard frame */
+@media (min-width: 1100px) {
+  main {
+    max-width: 1440px;
+    width: calc(100% - clamp(48px, 9vw, 160px));
+    margin-inline: auto;
+  }
+
+  body {
+    background-color: #081420;
+    background-image:
+      linear-gradient(90deg, transparent, #081420 20%, #081420 80%, transparent),
+      repeating-linear-gradient(90deg, #62e8ce14 0 1px, transparent 1px 32px),
+      repeating-linear-gradient(0deg, #62e8ce14 0 1px, transparent 1px 32px);
+  }
+
+  main > header {
+    border-top: 2px solid #62e8ce;
+  }
+}
